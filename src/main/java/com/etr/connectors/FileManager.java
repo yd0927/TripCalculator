@@ -26,8 +26,7 @@ public class FileManager {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-			String file = FileManager.class.getClassLoader().getResource(fileName).getFile();
-			locations = mapper.readValue(new File(file), Locations.class);
+			locations = mapper.readValue(new File(fileName), Locations.class);
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
